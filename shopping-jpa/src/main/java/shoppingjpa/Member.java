@@ -1,11 +1,14 @@
 package shoppingjpa;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Member {
 
-    @Id @GeneratedValue // AUTO -> SEQUENCE
+    @Id
+    @GeneratedValue // AUTO -> SEQUENCE
     @Column(name = "MEMBER_ID")
     private Long id;
 
@@ -14,6 +17,9 @@ public class Member {
     private String city;
     private String street;
     private String zipcode;
+
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<>();
 
     //Getter, Setter
     public String getName() {
@@ -47,4 +53,9 @@ public class Member {
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
 }
