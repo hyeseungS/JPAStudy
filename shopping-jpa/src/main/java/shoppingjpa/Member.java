@@ -19,7 +19,7 @@ public class Member {
     private String zipcode;
 
     @OneToMany(mappedBy = "member")
-    private List<Order> orders = new ArrayList<>();
+    private List<Order> orders = new ArrayList<Order>();
 
     //Getter, Setter
     public String getName() {

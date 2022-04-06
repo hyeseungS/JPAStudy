@@ -16,8 +16,12 @@ public class Order {
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
+    @OneToOne
+    @JoinColumn(name = "DELIVERY_ID")
+    private Delivery delivery; // 배송 정보
+
     @OneToMany(mappedBy = "order")
-    private List<OrderItem> orderItems = new ArrayList<>();
+    private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date orderDate; // 주문 날짜
@@ -25,7 +29,7 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status; // 주문 상태
 
-    //==연관관계 메소드==//
+    // == 연관관계 메소드 == //
     public void setMember(Member member) {
         // 기존 관계 제거
         if (this.member != null)
@@ -39,6 +43,11 @@ public class Order {
         orderItem.setOrder(this);
     }
 
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
+        delivery.setOrder(this);
+    }
+
     // Getter, Setter
     public Long getId() {
         return id;
@@ -47,6 +56,8 @@ public class Order {
     public Member getMember() {
         return member;
     }
+
+    public Delivery getDelivery() { return delivery; }
 
     public Date getOrderDate() {
         return orderDate;
