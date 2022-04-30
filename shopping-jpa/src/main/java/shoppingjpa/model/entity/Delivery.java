@@ -1,4 +1,4 @@
-package shoppingjpa;
+package shoppingjpa.model.entity;
 
 import javax.persistence.*;
 

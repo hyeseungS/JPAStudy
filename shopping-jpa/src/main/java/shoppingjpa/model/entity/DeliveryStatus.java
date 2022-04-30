@@ -1,4 +1,4 @@
-package shoppingjpa;
+package shoppingjpa.model.entity;
 
 public enum DeliveryStatus {
     READY, // 준비
