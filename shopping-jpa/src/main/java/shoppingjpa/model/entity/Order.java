@@ -8,7 +8,8 @@ import java.util.List;
 @Entity
 public class Order extends BaseEntity {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "ORDER_ID")
     private Long id;
 
@@ -57,13 +58,15 @@ public class Order extends BaseEntity {
         return member;
     }
 
-    public Delivery getDelivery() { return delivery; }
+    public Delivery getDelivery() {
+        return delivery;
+    }
 
     public Date getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate() {
+    public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
 

@@ -7,7 +7,8 @@ import javax.persistence.*;
 @Entity
 public class OrderItem {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "ORDER_ITEM_ID")
     private Long id;
 
@@ -31,28 +32,28 @@ public class OrderItem {
         return order;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
     public Item getItem() {
         return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
     }
 
     public int getOrderPrice() {
         return orderPrice;
     }
 
-    public void setOrderPrice(int orderPrice) {
-        this.orderPrice = orderPrice;
-    }
-
     public int getCount() {
         return count;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public void setOrderPrice(int orderPrice) {
+        this.orderPrice = orderPrice;
     }
 
     public void setCount(int count) {
